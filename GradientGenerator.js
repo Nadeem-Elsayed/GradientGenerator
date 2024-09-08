@@ -8,7 +8,25 @@ function randomRGB() {
     blue2 = Math.floor(Math.random()*256);
     gradient_text = "background-image: linear-gradient(to bottom right, rgb(" + red1 + "," + green1 + "," + blue1 + "), rgb(" + red2 + "," + green2 + "," + blue2 + "))"
     document.getElementById("gradient-box").setAttribute('style', gradient_text)
+    //Set the text values to let the user know the color displayed.
+    rgb1 = [red1, green1, blue1]
+    document.getElementById("rgb1").innerHTML = "RGB: " + rgb1;
+
+    rgb2 = [red2, green2, blue2]
+    document.getElementById("rgb2").innerHTML = "RGB: " + rgb2;
+    
+    hex1 = rgb_to_hex(rgb1)
+    document.getElementById("hex1").innerHTML = "Hex: " + hex1;
+    
+    hex2 = rgb_to_hex(rgb2)
+    document.getElementById("hex2").innerHTML = "Hex: " + hex2;
 }
+function hex_to_decimal(hex) {
+    return parseInt(hex,16);
+};
+function decimal_to_hex(decimal) {
+    return decimal.toString(16);
+};
 function rgb_to_hex(rgb) {
     red = decimal_to_hex(rgb[0]);
     green = decimal_to_hex(rgb[1]);
